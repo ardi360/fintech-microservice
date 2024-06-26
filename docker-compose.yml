@@ -1,0 +1,17 @@
+services:
+  eureka-server:
+    image: eureka-server:1.0-SNAPSHOT
+    container_name: eureka-server
+    ports:
+      - 8761:8761
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - TZ=Asia/Tehran
+    networks:
+      - spring
+
+networks:
+  postgres:
+    driver: bridge
+  spring:
+    driver: bridge
