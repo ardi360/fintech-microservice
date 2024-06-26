@@ -1,5 +1,18 @@
+server:
+  port: 8090
 spring:
   application:
     name: config-server
   profiles:
-    active: dev
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/all-configs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
