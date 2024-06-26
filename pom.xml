@@ -10,6 +10,7 @@
     <modules>
         <module>eureka-server</module>
         <module>config-server</module>
+        <module>banking-service</module>
     </modules>
     <version>1.0-SNAPSHOT</version>
 
