@@ -16,7 +16,9 @@ spring:
               authorization-grant-types:
                 - client_credentials
               scopes:
-                - test.test
+                - card.inquiry
+                - card.money-transfer
+                - account.balance
             token:
               access-token-time-to-live: 3600s
 
