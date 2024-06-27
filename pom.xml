@@ -12,6 +12,7 @@
         <module>config-server</module>
         <module>banking-service</module>
         <module>api-gateway</module>
+        <module>oAuth2-authorization-server</module>
     </modules>
     <version>1.0-SNAPSHOT</version>
 
