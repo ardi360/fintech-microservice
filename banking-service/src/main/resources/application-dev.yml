@@ -25,3 +25,6 @@ spring:
 #logging:
 #  level:
 #    org.springframework.security: trace
+
+populate:
+  data: true

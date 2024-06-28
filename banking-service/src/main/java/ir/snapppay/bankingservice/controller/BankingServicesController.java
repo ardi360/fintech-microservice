@@ -32,4 +32,6 @@ public class BankingServicesController {
     public String test2() {
         return "test";
     }
+
+    //... other CRUD apis or we can pass it to Spring Data Rest module to do it for us !! greeeeat
 }
