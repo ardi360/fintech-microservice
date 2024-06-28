@@ -12,6 +12,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BaseRes {
-    private String resultCode;
+    private Integer resultCode;
     private String description;
 }
