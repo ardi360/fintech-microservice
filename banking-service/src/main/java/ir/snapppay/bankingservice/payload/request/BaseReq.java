@@ -1,9 +1,15 @@
 package ir.snapppay.bankingservice.payload.request;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class BaseReq {
     @NotNull
     private Long requestNumber;

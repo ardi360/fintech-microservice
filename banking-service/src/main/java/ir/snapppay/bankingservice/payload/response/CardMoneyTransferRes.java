@@ -11,6 +11,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class CardInquiryRes extends BaseRes {
-    private String anything5;
+public class CardMoneyTransferRes extends BaseRes {
+    private String anything4;
 }

@@ -7,6 +7,6 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CardInquiryReq extends BaseReq {
-    private String anything1;
+public class CardMoneyTransferReq extends BaseReq {
+    private String anything2;
 }

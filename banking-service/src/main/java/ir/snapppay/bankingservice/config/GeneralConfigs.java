@@ -25,7 +25,7 @@ public class GeneralConfigs {
 
     private final PersonRepository personRepository;
 
-    // populate some test data for database, checks first if we dont have any record. also it only activates on dev profile
+    // populate some test data for database, checks first if we dont have any record. also it only activates on dev profile, also its conditional
     @Bean
     @Order(Ordered.LOWEST_PRECEDENCE)
     @Profile("dev")
