@@ -9,6 +9,16 @@ services:
       - TZ=Asia/Tehran
     networks:
       - spring
+  banking-service:
+    image: banking-service:1.0-SNAPSHOT
+    container_name: banking-service
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - TZ=Asia/Tehran
+    networks:
+      - spring
 
 networks:
   postgres:

@@ -18,6 +18,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.time.LocalDateTime;
 
+//todo : make this aspect run async if possible
 @Component
 @Aspect
 @Slf4j
@@ -42,7 +43,7 @@ public class LoggingAspect {
 
         // proceed with method execution in here
         Object proceedResult = proceedingJoinPoint.proceed();
-
+// todo : log response code and also request number as well
         requestResponseLogRepository.save(RequestResponseLogEntity.builder()
                 .clientId(principal.getSubject())
 //                .clientId("get from JWT") // in test environment when we dont want to have A@A with oAuth2
