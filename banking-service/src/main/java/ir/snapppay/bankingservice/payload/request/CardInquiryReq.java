@@ -1,5 +1,6 @@
 package ir.snapppay.bankingservice.payload.request;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)
@@ -8,5 +9,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CardInquiryReq extends BaseReq {
-    private String anything1;
+    @NotEmpty
+    private String sourcePan;
+
+    @NotEmpty
+    private String destinationPan;
 }

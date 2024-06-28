@@ -1,6 +1,7 @@
 package ir.snapppay.bankingservice.domain;
 
 import ir.snapppay.bankingservice.constant.AccountType;
+import ir.snapppay.bankingservice.constant.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +9,7 @@ import java.util.Set;
 
 //each account may have many debit card attached to it
 @Entity(name = "account")
-@ToString
+@ToString(exclude = "cards")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,6 +25,10 @@ public class AccountEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private AccountType accountType;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Status accountStatus;
 
     @Column(nullable = false)
     private Double balance;

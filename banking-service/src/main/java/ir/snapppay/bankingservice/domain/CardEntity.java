@@ -1,11 +1,14 @@
 package ir.snapppay.bankingservice.domain;
 
+import ir.snapppay.bankingservice.constant.Status;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Entity(name = "card")
-@ToString
 @Getter
 @Setter
 @NoArgsConstructor
@@ -22,6 +25,10 @@ public class CardEntity {
     private String expirationDate;
 
     private String cvv2;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Status cardStatus;
 
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)

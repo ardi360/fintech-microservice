@@ -1,7 +1,7 @@
 package ir.snapppay.bankingservice.config;
 
 
-import ir.snapppay.bankingservice.constant.CallingResult;
+import ir.snapppay.bankingservice.constant.ResponseResult;
 import ir.snapppay.bankingservice.payload.response.BaseRes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
@@ -35,6 +35,6 @@ public class GeneralExceptionHandler {
         log.error("this unknown internal server Exception Raised and Caught By ControllerAdvice: " + exception.getMessage());
         return ResponseEntity.internalServerError()
                 .body(BaseRes.builder().resultCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                        .description(CallingResult.INTERNAL_ERROR.getDescription()).build());
+                        .description(ResponseResult.INTERNAL_ERROR.getDescription()).build());
     }
 }
