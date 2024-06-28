@@ -20,7 +20,7 @@ spring:
                 - card.money-transfer
                 - account.balance
             token:
-              access-token-time-to-live: 3600s
+              access-token-time-to-live: 100000s
 
 logging:
   level:
