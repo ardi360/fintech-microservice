@@ -1,10 +1,8 @@
 package ir.snapppay.bankingservice.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
 
 @Entity(name = "card")
 @ToString
@@ -17,5 +15,15 @@ public class CardEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String pan;
+
+    @Column(nullable = false)
+    private String expirationDate;
+
+    private String cvv2;
+
+    @ManyToOne
+    @JoinColumn(name = "account_id", nullable = false)
+    private AccountEntity account;
 }

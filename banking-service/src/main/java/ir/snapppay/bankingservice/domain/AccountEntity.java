@@ -4,6 +4,9 @@ import ir.snapppay.bankingservice.constant.AccountType;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
+//each account may have many debit card attached to it
 @Entity(name = "account")
 @ToString
 @Getter
@@ -29,5 +32,7 @@ public class AccountEntity {
     @JoinColumn(name = "person_id", nullable = false)
     private PersonEntity person;
 
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private Set<CardEntity> cards;
 }
 
