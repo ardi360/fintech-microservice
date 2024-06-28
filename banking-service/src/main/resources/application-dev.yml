@@ -1,13 +1,13 @@
 server:
   port: 8080
-#spring:
-#  security:
-#    oauth2:
-#      resourceserver:
-#        jwt:
-#          issuer-uri: http://localhost:8081
 
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081
+
   datasource:
     url: jdbc:postgresql://127.0.0.1:5432/ardiDB
     username: ardalan

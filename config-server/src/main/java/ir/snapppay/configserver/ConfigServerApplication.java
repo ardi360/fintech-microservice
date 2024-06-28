@@ -7,7 +7,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @SpringBootApplication
 @EnableConfigServer
 public class ConfigServerApplication {
-
+    // todo : move all properties file to config server
     public static void main(String[] args) {
         SpringApplication.run(ConfigServerApplication.class, args);
     }

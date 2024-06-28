@@ -10,6 +10,7 @@ import ir.snapppay.bankingservice.service.BankingService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class BankingServicesController {
     //todo : dont forget to add swagger for api documenting as per requested later after all things done!
     private final BankingService bankingService;
+
     @PostMapping("/card/inquiry")
-//    @PreAuthorize("hasAnyAuthority('SCOPE_card.inquiry')")
+    @PreAuthorize("hasAnyAuthority('SCOPE_card.inquiry')")
     public ResponseEntity<CardInquiryRes> cardInquiry(@RequestBody @Valid CardInquiryReq cardInquiryReq) {
         CardInquiryRes cardInquiryRes = bankingService.cardInquiry(cardInquiryReq);
         return ResponseEntity.ok(cardInquiryRes);
@@ -36,7 +38,7 @@ public class BankingServicesController {
     }
 
     @PostMapping("/account/balance")
-//    @PreAuthorize("hasAnyAuthority('SCOPE_card.balance')")
+    @PreAuthorize("hasAnyAuthority('SCOPE_account.balance')")
     public ResponseEntity<AccountBalanceRes> accountBalance(@RequestBody @Valid AccountBalanceReq accountBalanceReq) {
         AccountBalanceRes accountBalanceRes = bankingService.accountBalance(accountBalanceReq);
         return ResponseEntity.ok(accountBalanceRes);

@@ -10,6 +10,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -34,8 +36,7 @@ public class LoggingAspect {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
         Object[] args = proceedingJoinPoint.getArgs();
 
-        //todo : read principal from SecurityContextHolder and get the jwt subject afterward
-//        var jwt = (OAuth2ResourceServerProperties.Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Jwt principal = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         log.info("new request received for uri :" + request.getRequestURI());
 
@@ -43,8 +44,8 @@ public class LoggingAspect {
         Object proceedResult = proceedingJoinPoint.proceed();
 
         requestResponseLogRepository.save(RequestResponseLogEntity.builder()
-//                .clientId("jwt.getSubject()")
-                .clientId("get from JWT")
+                .clientId(principal.getSubject())
+//                .clientId("get from JWT") // in test environment when we dont want to have A@A with oAuth2
                 .requestParamsJson(objectMapper.writeValueAsString(args))
                 .requestCompilationTime(LocalDateTime.now())
                 .requestUri(request.getRequestURI())
