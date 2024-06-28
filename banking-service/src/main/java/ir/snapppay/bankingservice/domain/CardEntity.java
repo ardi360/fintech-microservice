@@ -2,13 +2,11 @@ package ir.snapppay.bankingservice.domain;
 
 import ir.snapppay.bankingservice.constant.Status;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 
 @Entity(name = "card")
+@ToString
 @Getter
 @Setter
 @NoArgsConstructor
